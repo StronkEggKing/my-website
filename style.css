@@ -1,11 +1,27 @@
-* {
+@font-face {
+  font-family: "VCR OSD Mono";
+  src: url(Fonts/VCR_OSD_MONO_1.001.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "nasin-nanpa";
+  src: url(Fonts/nasin-nanpa-4.0.2.otf) format('opentype');
+}
+
+
+body {
   color: #fff;
-  font-family: VCR OSD Mono;
+  font-family: "VCR OSD Mono", sans-serif;
+}
+
+body:has(#togBtn:checked) {
+  font-family: 'nasin-nanpa', sans-serif;
 }
 
 LangSwitch {
   float: right;
   padding: 0px;
+  font-family: "VCR OSD Mono", sans-serif !important;
 }
 
 h1 {
@@ -54,8 +70,6 @@ langV {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-/* --- Scrolling reference gallery (pure CSS, no JS, no Lua, nothing) --- */
 
 .gallery-reel {
   width: 100%;
@@ -113,7 +127,7 @@ langV {
   border-radius: 4px;
   border: 2px solid #555555;
   display: block;
-  background: #222222; /* shows while you're missing an image file */
+  background: #222222;
 }
 
 .gallery-item span {
@@ -122,7 +136,6 @@ langV {
   font-size: 12px;
 }
 
-/* accent border per section, matching the gradient tag colors above */
 .gallery-programming .gallery-item img { border-color: #00cc22; }
 .gallery-anim .gallery-item img { border-color: #cc00cc; }
 .gallery-langV .gallery-item img { border-color: #55aabb; }
@@ -133,3 +146,77 @@ langV {
     overflow-x: auto;
   }
 }
+
+Lasina {
+  font-family: "VCR OSD Mono", sans-serif !important;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 34px;
+  float: right;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ca2222;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2ab934;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(55px);
+  -ms-transform: translateX(55px);
+  transform: translateX(55px);
+}
+
+.on
+{
+  display: none;
+}
+
+.on, .off
+{
+  color: white;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+input:checked+ .slider .on
+{display: block;}
+
+input:checked + .slider .off
+{display: none;}
