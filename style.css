@@ -111,7 +111,7 @@ langV {
 
 @keyframes gallery-scroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); } /* items are duplicated below, so -50% loops seamlessly */
+  to   { transform: translateX(-50%); }
 }
 
 .gallery-item {
